@@ -61,7 +61,7 @@ public class TicTacToe {
                 {
                     System.out.println("Player 2's turn");
                 }
-
+                
                 System.out.print("Enter co-ordinate of row in the range [0,2]:");
                 rowLoc = input.nextInt();
 
@@ -113,22 +113,15 @@ public class TicTacToe {
                 if (count % 2 == 0)
                 {
                     ticTacToe[rowLoc][colLoc] = x;
-                }
-                else
-                {
-                    ticTacToe[rowLoc][colLoc] = o;
-                }
-
-                drawBoard(ticTacToe);
-
-                if (count % 2 == 0)
-                {
                     player1Win = checkForWin(ticTacToe, rowLoc, colLoc, x);
                 }
                 else
                 {
+                    ticTacToe[rowLoc][colLoc] = o;
                     player2Win = checkForWin(ticTacToe, rowLoc, colLoc, o);
                 }
+
+                drawBoard(ticTacToe);
 
                 if (!player1Win && !player2Win && count == (ticTacToe.length * ticTacToe[0].length) - 1)
                 {
