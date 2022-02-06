@@ -50,8 +50,9 @@ public class TicTacToe {
             System.out.println("----------------");
 
             drawBoard(ticTacToe);
-
-            while (!draw && !player1Win && !player2Win)
+            
+            //Round will continue unless checkForWin returns 'True' for any player, or if all the squares have been filled without a winner, resulting in a draw
+            while (!draw && !player1Win && !player2Win) 
             {
                 if (count % 2 == 0)
                 {
@@ -187,6 +188,13 @@ public class TicTacToe {
         }
         System.out.println("  0   1   2\n");
     }
+    
+     /*
+         When a user enters an X or O in a square, this method then checks if any 2 squares 
+         contain an X (if the user entered an X) or O (if the user entered an O) to determine if the user has won or not.
+         E.g. If a player draws an X on the bottom right corner, this method will check if the 2 squares
+         above it, 2 squares to the right or the 2 diagonal squares contain X's
+     */
 
     public static boolean checkForWin(char[][]a, int rowLoc, int colLoc, char symbol)
     {
